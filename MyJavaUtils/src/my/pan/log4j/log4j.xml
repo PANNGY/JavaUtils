@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<!DOCTYPE log4j:configuration SYSTEM "../xsd/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+<appender name="console" class="org.apache.log4j.ConsoleAppender">
+   <layout class="org.apache.log4j.PatternLayout">
+       <param name="ConversionPattern" value="%d{yyyy年MM月dd日 HH:mm:ss}[%5p] %c{1}:%L - %m%n" /><!-- 设置输出文件项目和格式 -->
+   </layout>
+   <filter class="org.apache.log4j.varia.LevelRangeFilter">
+     <param name="LevelMin" value="DEBUG" />
+     <param name="LevelMax" value="FATAL" />    
+     <param name="AcceptOnMatch" value="true" />
+  </filter>
+</appender>
+<appender name="info" class="org.apache.log4j.RollingFileAppender">
+   <param name="file" value="${vmapp.root}/WEB-INF/logs/info.log" />
+   <param name="append" value="true" />
+   <param name="MaxFileSize" value="5MB" />
+   <layout class="org.apache.log4j.PatternLayout">
+       <param name="ConversionPattern" value="%d{yyyy年MM月dd日 HH:mm:ss}[%5p] %c{1}:%L - %m%n" />
+   </layout>
+   <filter class="org.apache.log4j.varia.LevelRangeFilter">
+     <param name="LevelMin" value="INFO" />
+     <param name="LevelMax" value="INFO" />    
+     <param name="AcceptOnMatch" value="true" />
+  </filter>
+</appender>
+<appender name="debug" class="org.apache.log4j.RollingFileAppender">
+   <param name="file" value="${vmapp.root}/WEB-INF/logs/debug.log" />
+   <param name="append" value="true" />
+   <param name="MaxFileSize" value="5MB" />
+   <layout class="org.apache.log4j.PatternLayout">
+       <param name="ConversionPattern" value="%d{yyyy年MM月dd日 HH:mm:ss}[%5p] %c{1}:%L - %m%n" />
+   </layout>
+   <filter class="org.apache.log4j.varia.LevelRangeFilter">
+     <param name="LevelMin" value="DEBUG" />
+     <param name="LevelMax" value="DEBUG" />    
+     <param name="AcceptOnMatch" value="true" />
+  </filter>
+</appender>
+<appender name="dayend" class="org.apache.log4j.RollingFileAppender">
+   <param name="file" value="${vmapp.root}/WEB-INF/logs/dayend.log" />
+   <param name="append" value="true" />
+   <param name="MaxFileSize" value="5MB" />
+   <layout class="org.apache.log4j.PatternLayout">
+       <param name="ConversionPattern" value="%d{yyyy年MM月dd日 HH:mm:ss}[%5p] %c{1}:%L - %m%n" />
+   </layout>
+   <filter class="org.apache.log4j.varia.LevelRangeFilter">
+     <param name="LevelMin" value="DEBUG" />
+     <param name="LevelMax" value="DEBUG" />    
+     <param name="AcceptOnMatch" value="true" />
+  </filter>
+</appender>
+<appender name="WARN_ERR" class="org.apache.log4j.RollingFileAppender">
+   <param name="file" value="${vmapp.root}/WEB-INF/logs/warn_err.log" />
+   <param name="append" value="true" />
+   <param name="MaxFileSize" value="5MB" />
+   <layout class="org.apache.log4j.PatternLayout">
+       <param name="ConversionPattern" value="%d{yyyy年MM月dd日 HH:mm:ss}[%5p] %c{1}:%L - %m%n" />
+   </layout>
+   <filter class="org.apache.log4j.varia.LevelRangeFilter">
+     <param name="LevelMin" value="WARN" />
+     <param name="LevelMax" value="ERROR" />    
+     <param name="AcceptOnMatch" value="true" />
+  </filter>
+</appender>
+<logger name="com.guoguang.web.app">
+	<level value="DEBUG" />
+	<appender-ref ref="console" />
+	<appender-ref ref="info" />
+	<appender-ref ref="debug" />
+	<!--appender-ref ref="WARN_ERR" /-->
+</logger>
+<logger name="com.guoguang.web.common">
+	<level value="DEBUG" />
+	<appender-ref ref="console" />
+	<appender-ref ref="info" />
+	<appender-ref ref="debug" />
+	<!--appender-ref ref="WARN_ERR" /-->
+</logger>
+<logger name="com.guoguang.web.manager">
+	<level value="DEBUG" />
+	<appender-ref ref="console" />
+	<appender-ref ref="info" />
+	<appender-ref ref="debug" />
+	<!--appender-ref ref="WARN_ERR" /-->
+</logger>
+<logger name="com.guoguang.web.app.DayEnd">
+	<level value="DEBUG" />
+	<appender-ref ref="dayend" />
+</logger>
+<logger name="y_ut">
+	<level value="DEBUG" />
+	<appender-ref ref="console" />
+	<appender-ref ref="info" />
+	<appender-ref ref="debug" />
+</logger>
+<logger name="com.zenith">
+	<level value="DEBUG" />
+	<appender-ref ref="console" />
+	<appender-ref ref="info" />
+	<appender-ref ref="debug" />
+</logger>
+<logger name="org.springframework.jdbc.core.JdbcTemplate">
+	<level value="DEBUG" />
+	<appender-ref ref="console" />
+	<appender-ref ref="info" />
+	<appender-ref ref="debug" />
+</logger>
+<root> <!-- 设置接收所有输出的通道 -->
+<level value="DEBUG" />
+   <!--appender-ref ref="console"/-->
+   <appender-ref ref="info" />
+   <appender-ref ref="debug" />
+   <appender-ref ref="WARN_ERR" />     
+</root>
+</log4j:configuration>
