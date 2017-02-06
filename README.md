@@ -1,2 +1,2 @@
 # JavaUtils
-some java api utils
+some common java api utils
