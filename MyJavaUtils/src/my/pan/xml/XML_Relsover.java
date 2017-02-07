@@ -21,10 +21,7 @@ public class XML_Relsover {
 //		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 //		DocumentBuilder builder = factory.newDocumentBuilder();
 		InputStream in = XML_Relsover.class.getResourceAsStream("/my/pan/xml/test.xml");
-		//xml_jdom(in);
-//		Document doc = builder.parse(in);
-//		Element e = doc.getDocumentElement();
-//		System.out.println(e.getNodeName());
+
 	}
 	
 	public static void xml_jdom(InputStream in,String parentNodeName,String name) throws JDOMException, IOException{
